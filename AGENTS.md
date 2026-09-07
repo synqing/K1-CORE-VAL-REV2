@@ -4,6 +4,13 @@ abstract: "Hard operating rules for K1-CORE-VAL-REV2. EasyEDA Pro only. Donor FA
 
 # AGENTS.md — K1-CORE-VAL-REV2
 
+**Read first, every session:**
+`docs/SESSION-CANON-2026-09-07-CUTLINE-IS-NOT-PLACEMENT.md`
+
+Cut-line is not placement. A folder is not a board. Canary needs `:9223`.
+Do not start P1/P2 until Gate B0 has a live EasyEDA project and a canonical
+`easyeda/K1-CORE-VAL-REV2.epro2`. Gateway `certified_mutating_verbs` is empty.
+
 ```text
 PROJECT            = K1-CORE-VAL-REV2
 EDA                = EasyEDA Pro (sole authority)

@@ -14,7 +14,10 @@ THIS IS **K1-CORE-VAL-REV2**.
 - Old R1/FABLE material is **reference-only**.
 - Do not create ad-hoc active project versions (`…-final`, `…-FABLE-R1`, …).
 - Do not mutate the donor.
-- Read `AGENTS.md` and `docs/DECISIONS.md` first.
+- Read `AGENTS.md`, `docs/DECISIONS.md`, and
+  `docs/SESSION-CANON-2026-09-07-CUTLINE-IS-NOT-PLACEMENT.md` first.
+  That canon is why 160 was almost killed by a cut-line and why this folder
+  is not yet a live EasyEDA project.
 
 ## What is real right now
 

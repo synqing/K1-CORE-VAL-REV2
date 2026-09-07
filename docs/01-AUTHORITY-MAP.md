@@ -4,6 +4,8 @@ abstract: "What is live vs reference vs forbidden. After B0, live EasyEDA REV2 w
 
 # 01 — Authority map
 
+**Session canon (never-again):** `docs/SESSION-CANON-2026-09-07-CUTLINE-IS-NOT-PLACEMENT.md`
+
 ## After Gate B0 (target)
 
 | Rank | Surface |
