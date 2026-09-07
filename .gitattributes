@@ -1,0 +1,15 @@
+# Text
+*.md    text eol=lf
+*.json  text eol=lf
+*.csv   text eol=lf
+*.txt   text eol=lf
+*.py    text eol=lf
+.gitignore text eol=lf
+
+# EasyEDA / binary evidence
+*.epro2 binary
+*.epru  binary
+*.png   binary
+*.jpg   binary
+*.pdf   binary
+*.webp  binary
