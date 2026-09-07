@@ -2,7 +2,7 @@
 abstract: "Never-again canon 2026-09-07. Cut-line is not placement. 160_PASS is a −15 mm super-macro + 7 reflows. Folder bootstrap is not a live EasyEDA project. Canary needs :9223. Do not freeze 175 because chopping the east edge deletes the HMI."
 status: CANON
 authority: Captain 2026-09-07 (placement close-out + REV2 bootstrap)
-identical_copy: "K1-CORE-VAL-R1 docs/agent/SESSION-CANON-2026-09-07-CUTLINE-IS-NOT-PLACEMENT.md"
+canonical: "this file in K1-CORE-VAL-REV2. R1 has a pointer only."
 ---
 
 # SESSION CANON — 2026-09-07 — CUT-LINE IS NOT PLACEMENT
