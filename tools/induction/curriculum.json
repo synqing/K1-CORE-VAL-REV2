@@ -1,0 +1,246 @@
+{
+  "version": 1,
+  "generated": "2026-09-07",
+  "modules": {
+    "killers": "The two board-killers \u2014 empty editor, stripped CDP flags",
+    "recovery": "Recovery from stalls, faults and unhydrated editors",
+    "stalls": "How NOT to trigger stalls, hangs and refusals",
+    "tools": "Actuation path, gateway, preflight gate",
+    "measurement": "Measurement discipline \u2014 what counts as evidence",
+    "router": "Freerouting, DSN protection, pours",
+    "identity": "Project identity and donor protection"
+  },
+  "questions": [
+    {
+      "id": "K1",
+      "module": "killers",
+      "q": "An EasyEDA read returns ok=true with an empty array and no error. Name the ONE command you must never run in that state, because it saves before it closes and would write the empty document over the board. Command only.",
+      "sha256": "4cb3ab026c87256db917ce122906a08b45807132dd16587bcb61745b453bf802",
+      "source": "docs/SESSION-CANON-2026-09-07-LIVE-EDITOR-INTEGRITY.md"
+    },
+    {
+      "id": "K2",
+      "module": "killers",
+      "q": "A live read returns 0 components. Is that (a) an empty board, or (b) an ABORT? Single letter.",
+      "sha256": "3e23e8160039594a33894f6564e1b1348bbd7a0088d42c4acb73eeaed59c009d",
+      "source": "AGENTS.md NEVER AGAIN 15"
+    },
+    {
+      "id": "K3",
+      "module": "killers",
+      "q": "You must restart EasyEDA because its in-memory document is known bad. Complete: 'a graceful quit can ___ ; SIGKILL cannot ___'. Give the same three-word verb phrase for both blanks, once.",
+      "sha256": "819b6f32daa19e1a757cd952f4b25c4d626711859074db889ee16bdaeedc96cd",
+      "source": "docs/SESSION-CANON-2026-09-07-LIVE-EDITOR-INTEGRITY.md"
+    },
+    {
+      "id": "K4",
+      "module": "killers",
+      "q": "Which command-line flag does a plain `open -a EasyEDA-Pro` strip, disabling every CDP driver while the CLI keeps answering normally? Flag including its value.",
+      "sha256": "7751ceae13e00b53cc75d05663712ee3f15abee6c16efa8814c027d68fa6092f",
+      "source": "AGENTS.md NEVER AGAIN 7"
+    },
+    {
+      "id": "K5",
+      "module": "killers",
+      "q": "Name the ONE probe that discriminates a hydrated editor from an unhydrated one \u2014 `doc ls`, `document.current`, `doc open` and `--force-stale-read` all fail to. Gateway verb.",
+      "sha256": "4dd6ca11602488c464e61cfaa5569d9a862ed7e6353d566e0ab6085ca9d8d189",
+      "source": "docs/SESSION-CANON-2026-09-07-LIVE-EDITOR-INTEGRITY.md"
+    },
+    {
+      "id": "R1",
+      "module": "recovery",
+      "q": "Give the recovery order for an unhydrated editor as SIX comma-separated tokens, in order, drawn from: doc-open, kill, project-open, download, verify, reconnect",
+      "sha256": "738d601c4e2b51a870b384837e50abdf96c565bb07d26952137b4f66d8ee5741",
+      "source": "REC-EMPTY-EDITOR-001"
+    },
+    {
+      "id": "R2",
+      "module": "recovery",
+      "q": "The GUI is dead or frozen. Give the tool you must run to relaunch EasyEDA correctly and the flag you must NOT pass, as '<file> without <flag>'.",
+      "sha256": "d3a7f79e3a11a48fd0e8e9ea69adbfdcce085b18dda7dda698b7fb16dc9bd060",
+      "source": "AGENTS.md \u2014 EasyEDA surface"
+    },
+    {
+      "id": "R3",
+      "module": "recovery",
+      "q": "After a reconnect the first heal often reports a specific error. Name it, and say whether you kill the new app or wait and retry. Answer as '<error> / <action>'.",
+      "sha256": "c94c01197f334c26f21b238128f364b2413335792efef86236dfb471219ae62f",
+      "source": "AGENTS.md \u2014 EasyEDA surface"
+    },
+    {
+      "id": "R4",
+      "module": "recovery",
+      "q": "Which log file names the CDP fix every 30 seconds and should be read FIRST when anything CDP-shaped misbehaves? Filename only.",
+      "sha256": "f14b59672f30415bfd79b7a2c7596866c3920acdafa5580ce174fd9bdef0411b",
+      "source": "docs/SESSION-CANON-2026-09-07-LIVE-EDITOR-INTEGRITY.md"
+    },
+    {
+      "id": "R5",
+      "module": "recovery",
+      "q": "`easyeda-run download` printed `null`, exited 0, and wrote no file. What does that prove about the session? Short cause, three words.",
+      "sha256": "66d1b64383aed30e51dd92968eaf9b21a27c196f14f7fda2de8e1b547a584b51",
+      "source": "FC-GW-DOWNLOAD-NULL-RC0-001"
+    },
+    {
+      "id": "R6",
+      "module": "recovery",
+      "q": "`project open --uuid <doc>` fails with EDA_CALL_FAILED while the app sits on its start page. What must be loaded first? One word.",
+      "sha256": "244210e48437b6556980a70249a99369934a352429034cef9d7bd253b3bf2c01",
+      "source": "docs/SESSION-CANON-2026-09-07-LIVE-EDITOR-INTEGRITY.md"
+    },
+    {
+      "id": "S1",
+      "module": "stalls",
+      "q": "Name the operation that paints a progress overlay stuck at 50/67/75 percent, never advances, and is now mechanically REFUSED. easyeda-run subcommand.",
+      "sha256": "d1d1648d2fbdbc3ea681afb9eb17b45b5d368d70f5c3724abeef9d41c3a7e9f1",
+      "source": "AGENTS.md \u2014 NEVER AGAIN importer stall"
+    },
+    {
+      "id": "S2",
+      "module": "stalls",
+      "q": "Give the exit code and reason string of that mechanical refusal, as '<code> <reason>'.",
+      "sha256": "2bc4a8c1d2f0b392d92efa58783e1a39cf6f39570d4cceab3374db91eff5a69f",
+      "source": "AGENTS.md \u2014 NEVER AGAIN importer stall"
+    },
+    {
+      "id": "S3",
+      "module": "stalls",
+      "q": "Which construct is permanently banned inside a command run over the host/device bridge, because it blocks the connection and presents as a stall? One word.",
+      "sha256": "0afa5bb5d5f1787945e555e91474675beb6f34dd9a490423c4d0460e4d454885",
+      "source": "Captain standing order"
+    },
+    {
+      "id": "S4",
+      "module": "stalls",
+      "q": "Two EasyEDA windows are open on one project. Complete the reason this is a hard stop: 'that is ___ ___ writers'. Three words total.",
+      "sha256": "d4d2e984018e40b269725c0abb220e8b3ed00774bc871b59d3344577984f055c",
+      "source": "INV-HOST-CDP-001 / preflight exit 12"
+    },
+    {
+      "id": "S5",
+      "module": "stalls",
+      "q": "Name the two mutation mechanisms permanently banned in REV2 regardless of authorisation. Two comma-separated tokens.",
+      "sha256": "980fcce56c6e9cb52d8b76db68fec6ddc349ae613f87f689617b139f10586286",
+      "source": "AGENTS.md \u2014 EasyEDA only"
+    },
+    {
+      "id": "T1",
+      "module": "tools",
+      "q": "What is the ONLY permitted actuation path onto EasyEDA in REV2? Executable name.",
+      "sha256": "16117f90ed4a11737d38293bc169b229fa2845a1b4098f641da59da476ddd93a",
+      "source": "AGENTS.md \u2014 EasyEDA only"
+    },
+    {
+      "id": "T2",
+      "module": "tools",
+      "q": "The gateway cannot do the thing you need. What do you do? Three words.",
+      "sha256": "553083c3603ce55738e78cf4ee0485a5be711235c3f5059b6e98b6612d82d90f",
+      "source": "AGENTS.md \u2014 EasyEDA only"
+    },
+    {
+      "id": "T3",
+      "module": "tools",
+      "q": "What is the current value of `certified_mutating_verbs`? One word.",
+      "sha256": "2e1cfa82b035c26cbbbdae632cea070514eb8b773f616aaeaf668e2f0be8f10d",
+      "source": "AGENTS.md NEVER AGAIN 8"
+    },
+    {
+      "id": "T4",
+      "module": "tools",
+      "q": "Which script must run before the first read of a session, before every mutation batch, and after every application restart? Filename.",
+      "sha256": "9164104273e128914b7c2c96c2f689e4855516dccb946d6cc24db9224c18d5c9",
+      "source": "AGENTS.md"
+    },
+    {
+      "id": "T5",
+      "module": "tools",
+      "q": "Preflight exit code meaning the editor holds no board. Number only.",
+      "sha256": "4a44dc15364204a80fe80e9039455cc1608281820fe2b24f1e5233ade6af1dd5",
+      "source": "docs/SESSION-CANON-2026-09-07-LIVE-EDITOR-INTEGRITY.md"
+    },
+    {
+      "id": "T6",
+      "module": "tools",
+      "q": "Preflight exit code meaning the DRC call did not answer \u2014 which is NOT a clean board. Number only.",
+      "sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb",
+      "source": "docs/SESSION-CANON-2026-09-07-LIVE-EDITOR-INTEGRITY.md"
+    },
+    {
+      "id": "M1",
+      "module": "measurement",
+      "q": "`pcb.drc.check` reports a top-level count. What is it a count OF, and what must you quote instead? Answer as '<what it counts> / quote the <what>'.",
+      "sha256": "c31f503d90597700747a525d55cc9b90df42e3489887694321e35bc486329668",
+      "source": "INV-DRC-TOTAL-001"
+    },
+    {
+      "id": "M2",
+      "module": "measurement",
+      "q": "A status document says 280 DRC errors. A fresh readback says 362. Which wins? One word.",
+      "sha256": "75cf054234c387530f42ccd2a84a40a27ebddc54f61865780ba3a1c01284d4c8",
+      "source": "INV-METRIC-READBACK-001"
+    },
+    {
+      "id": "M3",
+      "module": "measurement",
+      "q": "A checker documents a check its code does not implement. Complete: 'its PASS is worse than no gate, because it converts an unchecked action into an ___ one'. One word.",
+      "sha256": "4362a2a5eb2c846bea12f36bc8b5d4e9b53d31c0c7073718cae75a55e0bd1b0d",
+      "source": "INV-CHECKER-CLAIM-001"
+    },
+    {
+      "id": "M4",
+      "module": "measurement",
+      "q": "Blank or missing PAD_NET bodies do not prove disconnection. Name the surface that must never be used to infer connectivity. Two words.",
+      "sha256": "fa0a64694e3976f6309895bf6bea1dfe48cf58f472827cb3bf8b50fe36949212",
+      "source": "AGENTS.md \u2014 Connectivity"
+    },
+    {
+      "id": "F1",
+      "module": "router",
+      "q": "EasyEDA's DSN export marks every wire and via with one attribute that makes Freerouting refuse to rip up or shove them. Exactly as it appears in the file.",
+      "sha256": "5a101545012f5178f6252c66c422e953208da70f252d98d1b4c8773e6a938a94",
+      "source": "FC-DSN-PROTECT-ROUTING-CEILING-001"
+    },
+    {
+      "id": "F2",
+      "module": "router",
+      "q": "Freerouting's -mt flag sizes which thread pool? One word. Autorouting itself is single-threaded, so more cores cannot help.",
+      "sha256": "8e72869103f39ec3d1e0f8fc8021554280e711cf634e9592e5ad96dc256f36e5",
+      "source": "OBS-FREEROUTING-THREADS-001"
+    },
+    {
+      "id": "F3",
+      "module": "router",
+      "q": "What is the control that lets Freerouting move copper on authorised nets only, leaving everything else fixed? Two words.",
+      "sha256": "584d954fa81b7e1e22cbd31c5ac85f7640ab621a29b0994c90a862fcd141fc59",
+      "source": "FC-DSN-PROTECT-ROUTING-CEILING-001"
+    },
+    {
+      "id": "F4",
+      "module": "router",
+      "q": "Pour `order` is assigned at creation and LOWER wins. The flood pour must therefore be created when? One word.",
+      "sha256": "3547cb112ac4489af2310c0626cdba6f3097a2ad5a3b42ddd3b59c76c7a079a3",
+      "source": "LIVE-EDITOR-INTEGRITY canon"
+    },
+    {
+      "id": "I1",
+      "module": "identity",
+      "q": "Name the project that is READ-ONLY and must never be opened, imported into, saved, or used as a live target while working REV2.",
+      "sha256": "653ceaa751c305a73518f25e85bfd6b59b2cf6ea1110a1f758c944bea6f1033a",
+      "source": "AGENTS.md \u2014 Donor protection"
+    },
+    {
+      "id": "I2",
+      "module": "identity",
+      "q": "The active document does not match expected project identity. Posture: 'best effort' or 'stop / blocked'? Answer with one of those two.",
+      "sha256": "141e0a9ea30f882355a43528701079b6cb78bf047defc2ee30b5880331beb9d6",
+      "source": "AGENTS.md \u2014 Failure posture"
+    },
+    {
+      "id": "I3",
+      "module": "identity",
+      "q": "No `easyeda/K1-CORE-VAL-REV2.epro2` exists. Which gate are you at? Gate id.",
+      "sha256": "c02c0b965e023abee808f2b548d8d5193a8b5229be6f3121a6f16e2d41a449b3",
+      "source": "AGENTS.md NEVER AGAIN 5"
+    }
+  ]
+}

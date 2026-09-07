@@ -39,3 +39,6 @@ evidence/easyeda-gateway/*/cdp*.log
 # Never commit a second active export at repo root
 /K1-CORE-VAL-REV2*.epro2
 /ProPrj_*.epro2
+
+# induction tokens are per-agent, per-machine session state
+.induction/

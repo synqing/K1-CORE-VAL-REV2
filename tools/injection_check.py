@@ -32,6 +32,12 @@ REQUIRED_TRACKED = [
     "docs/SESSION-CANON-2026-09-07-CUTLINE-IS-NOT-PLACEMENT.md",
     "docs/SESSION-CANON-2026-09-07-LIVE-EDITOR-INTEGRITY.md",
     "tools/injection_check.py",
+    "docs/TOOLCHAIN.md",
+    "tools/induction/induct.py",
+    "tools/induction/curriculum.json",
+    "tools/induction/test_guard.py",
+    ".claude/hooks/live-surface-guard.py",
+    ".claude/settings.json",
 ]
 
 
@@ -55,11 +61,32 @@ def check(root: Path, tracked: set[str] | None = None) -> list[str]:
 
     if "NEVER AGAIN" not in agents:
         fails.append("AGENTS.md has no NEVER AGAIN block (the injected gold)")
-    for i in range(1, 17):
+    for i in range(1, 18):
         if not re.search(rf"^{i}\. ", agents, re.M):
             fails.append(f"AGENTS.md missing NEVER AGAIN law {i}")
     if "What is injected" not in agents:
         fails.append("AGENTS.md missing 'What is injected' (map vs opt-in)")
+    if "INDUCTION GATE" not in agents:
+        fails.append("AGENTS.md missing the INDUCTION GATE section")
+
+    # The gate is only real if the hook is actually wired into settings.
+    settings = root / ".claude/settings.json"
+    if not settings.is_file():
+        fails.append(".claude/settings.json missing (the hook is not wired)")
+    else:
+        import json as _json
+        try:
+            cfg = _json.loads(settings.read_text(encoding="utf-8"))
+            pre = cfg.get("hooks", {}).get("PreToolUse") or []
+            wired = any("live-surface-guard" in _json.dumps(h) for h in pre)
+            if not wired:
+                fails.append("PreToolUse hook does not reference live-surface-guard")
+        except Exception as e:
+            fails.append("settings.json unparseable: %s" % e)
+
+    claude = (root / "CLAUDE.md")
+    if claude.is_file() and "induct.py" not in claude.read_text(encoding="utf-8"):
+        fails.append("CLAUDE.md does not front the induction gate")
 
     if not (root / "CLAUDE.md").is_file():
         fails.append("CLAUDE.md missing")
@@ -116,9 +143,9 @@ def check(root: Path, tracked: set[str] | None = None) -> list[str]:
 def self_test() -> int:
     """Plant a missing law. The checker MUST go red."""
     agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
-    stripped = re.sub(r"^15\. .*\n", "", agents, count=1, flags=re.M)
+    stripped = re.sub(r"^17\. .*\n", "", agents, count=1, flags=re.M)
     if stripped == agents:
-        print("SELF-TEST FAIL: could not strip law 15 from AGENTS.md fixture")
+        print("SELF-TEST FAIL: could not strip law 17 from AGENTS.md fixture")
         return 2
     tmp = ROOT / ".injection-check-tmp-AGENTS.md"
     orig = ROOT / "AGENTS.md"
@@ -130,11 +157,11 @@ def self_test() -> int:
         orig.write_bytes(backup)
         if tmp.exists():
             tmp.unlink()
-    if not any("law 15" in f for f in fails):
-        print("SELF-TEST FAIL: checker stayed green after deleting law 15")
+    if not any("law 17" in f for f in fails):
+        print("SELF-TEST FAIL: checker stayed green after deleting law 17")
         print("fails:", fails)
         return 2
-    print("SELF-TEST PASS: deleting law 15 went RED")
+    print("SELF-TEST PASS: deleting law 17 went RED")
     return 0
 
 
@@ -148,7 +175,8 @@ def main() -> int:
             print(f"  - {f}")
         return 1
     print("INJECTION CHECK PASS")
-    print("  AGENTS.md NEVER AGAIN 1-16")
+    print("  AGENTS.md NEVER AGAIN 1-17 + INDUCTION GATE")
+    print("  induction gate wired (hook + settings + curriculum)")
     print("  CLAUDE.md")
     print("  Cursor alwaysApply")
     print("  tracked .agents/skills/k1-core-val-rev2/SKILL.md (real file)")

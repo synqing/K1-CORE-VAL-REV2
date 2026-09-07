@@ -4,11 +4,49 @@ abstract: "Hard operating rules for K1-CORE-VAL-REV2. EasyEDA Pro only. Donor FA
 
 # AGENTS.md — K1-CORE-VAL-REV2
 
+## INDUCTION GATE — mechanical, not advisory
+
+**No live surface until you can prove you read the canon.**
+
+```bash
+python3 tools/induction/induct.py --status     # am I inducted?
+python3 tools/induction/induct.py --exam       # 33 questions, 7 modules
+python3 tools/induction/induct.py --submit answers.json
+```
+
+A `PreToolUse` hook (`.claude/hooks/live-surface-guard.py`) **blocks** mutating
+EasyEDA commands until this agent holds a valid token: `doc reload`, `easyeda-run
+mutate/txn/agent/repair/apply`, mutating gateway verbs, Freerouting. Hooks fire for
+subagents too and cannot be argued with.
+
+Never blocked: reads, `download`, `canary`, `knowledge`, `preflight.sh`, git, tests,
+`injection_check.py`, and the induction itself. The gate must never stop you
+becoming inducted or diagnosing a fault.
+
+Blocked for **everyone**, inducted or not: `open -a EasyEDA-Pro`,
+`easyeda-run import-test`, `setDocumentSource`, `force:true`.
+
+The answer key does not exist in this repo — only hashes. Every answer is in the
+canon. A token expires after 24 h **and the instant any canon file changes**, so
+when the Captain edits a law, every prior induction lapses.
+
+Emergency: `K1_INDUCTION_OVERRIDE="<reason>"` permits one gated command and is
+written to `.induction/override.log`. It cannot lift a prohibition.
+
+Proofs (must be able to go red): `python3 tools/induction/induct.py --self-test`
+and `python3 tools/induction/test_guard.py` (22 fixtures).
+
 **Read first, every session:**
 `docs/SESSION-CANON-2026-09-07-CUTLINE-IS-NOT-PLACEMENT.md`
 `docs/SESSION-CANON-2026-09-07-LIVE-EDITOR-INTEGRITY.md`
+`docs/SESSION-CANON-2026-09-07-EASYEDA-SURFACE.md`
+`docs/TOOLCHAIN.md`
 
 Cut-line is not placement. A folder is not a board. Canary needs `:9223`.
+EasyEDA is several products sharing one GUI. If the GUI is dead or frozen,
+do **not** `open -a EasyEDA-Pro`. Read the watchdog log, then
+`node ~/SpectraSynq-EDA/EasyEDA-MCP/tools/easyeda_reconnect.mjs` (no `--gentle`).
+First heal often `sandbox-missing` — wait and retry, do not kill the new app.
 
 **Before the first read of a session, before every mutation batch, and after every
 application restart:** run `preflight.sh <project-uuid> <doc-uuid>` (in the R1 tree at
@@ -151,6 +189,8 @@ not best-effort mutation.
 14. `easyeda-run` receipts land in the **R1** `evidence/easyeda-gateway/` tree. Copy them here.
 15. Zero component count from a live read is ABORT (empty editor), never “blank board.” `doc reload` saves first — do not reload an empty editor.
 16. Namespace ids `K1-CORE-VAL-REV2::<doc>::<id>`.
+17. No live surface without induction. `induct.py --status` before you touch a
+    board; the guard blocks you if you skip it. A token dies when a canon changes.
 
 Story and EasyEDA surface table: `docs/SESSION-CANON-2026-09-07-CUTLINE-IS-NOT-PLACEMENT.md`.
 Live-editor empty-document scar: `docs/SESSION-CANON-2026-09-07-LIVE-EDITOR-INTEGRITY.md`.
@@ -161,8 +201,8 @@ A file nobody is forced to load is theatre. On session start in **this** tree:
 
 | Auto-loaded | Not auto-loaded |
 |---|---|
-| this `AGENTS.md` (including NEVER AGAIN 1–16) | the long canons under `docs/SESSION-CANON-*` |
-| `CLAUDE.md` | skill **bodies** (catalog shows the name only) |
+| this `AGENTS.md` (including NEVER AGAIN 1–17) | the long canons under `docs/SESSION-CANON-*` |
+| `CLAUDE.md` (fronts the induction gate) | skill **bodies** (catalog shows the name only) |
 | `.cursor/rules/k1-core-val-rev2.mdc` (`alwaysApply`) | anything under `.grok/` (gitignored) |
 
 Skill `k1-core-val-rev2` is tracked at `.agents/skills/k1-core-val-rev2/SKILL.md`. Load it on hardware work. Open a canon when the task hits that scar.
@@ -193,3 +233,4 @@ Not a zone redesign, MCU rethink, KiCad migration, autorouter experiment, HMI re
 | 2026-09-07 | agent:grok | REV2 operating constitution. |
 | 2026-09-07 | agent:grok | NEVER AGAIN block inlined so session injection carries the gold, not a filename. |
 | 2026-09-07 | agent:grok | What-is-injected table; skill tracked under `.agents/skills/`; injection_check.py. |
+| 2026-09-07 | agent:grok | Surface personality canon: reconnect.mjs no --gentle; never open -a; sandbox-missing retry. |
