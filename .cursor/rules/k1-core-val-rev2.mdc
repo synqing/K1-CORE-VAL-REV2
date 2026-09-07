@@ -1,0 +1,19 @@
+---
+description: K1-CORE-VAL-REV2 is the live EasyEDA-native board. 160×40. Cut-line is not placement. Folder is not a board. Always apply.
+alwaysApply: true
+---
+
+# K1-CORE-VAL-REV2
+
+EasyEDA Pro is sole authority. KiCad is not source.
+
+Read `AGENTS.md` (NEVER AGAIN block). Then
+`docs/SESSION-CANON-2026-09-07-CUTLINE-IS-NOT-PLACEMENT.md`.
+
+Load skill `k1-core-val-rev2`.
+
+If `easyeda/K1-CORE-VAL-REV2.epro2` is absent you are at Gate B0 — not P1.
+
+Never: cut-line 160 reject, `cp` donor as REV2, `openProject` over FABLE,
+`setDocumentSource`, outline CLI, implement in K1-CORE-VAL-R1, FABLE-R1 uuid,
+leftover PCB2, split L2/L5, shrink HMI, TPS62912 “fix”, NFC, `open -a EasyEDA-Pro`.

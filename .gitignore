@@ -27,6 +27,8 @@ node_modules/
 
 # Logs
 *.log
+combined.log
+error.log
 tmp/
 _scratch/
 

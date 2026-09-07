@@ -11,7 +11,9 @@ abstract: "REV2 changelog. B0 still blocked: CDP now healthy; one GUI import-tes
 | 2026-09-07 | Canon: `docs/SESSION-CANON-2026-09-07-CUTLINE-IS-NOT-PLACEMENT.md`. Wired from AGENTS.md / README. |
 | 2026-09-07 | Canon extended: EasyEDA surface pitfalls, lying maps, FABLE-R1≠R3, leftover PCB2. |
 | 2026-09-07 | CDP/canary recovered (`:9223` PASS, CLI/daemon/connector v1.3.0). One GUI `import-test --via gui` of the immutable donor as **NEW PROJECT** `K1-CORE-VAL-REV2`. Gate A `PASS_WITH_WARNINGS`. Gate B **FAIL**: dialog 1 stuck on **Importing**, bar **75 %**, 90 s, no dialog 2, `project_uuid=null`. Trap `FC-CDP-PAUSE-STORM-001` + `Cannot close a CLOSED writable stream`. Modal dismissed. FABLE UUID unchanged. Donor SHA unchanged. No second import. Evidence: `evidence/bootstrap/import-stall-20260907T141043Z/`. |
-| — | Live project, canonical epro2, P1, P2: not started. |
+| 2026-09-07 | Captain created live EasyEDA project `K1-CORE-VAL-REV2` UUID `4f65435539d34c66941dd190f76e7f79` (≠ FABLE). Opened P1 + PCB1. Server download is **5497 bytes**, 0 components, 2 copper layers, no outline — empty new-project shell, not a donor import. Canonical `easyeda/*.epro2` not written. |
+| 2026-09-07 | Load paths: NEVER AGAIN inlined in AGENTS.md; skill k1-core-val-rev2; Cursor alwaysApply; CLAUDE.md. |
+| — | Live project title/UUID exist; donor design not in it. P1/P2 not started. |
 
 ---
 **Document Changelog**

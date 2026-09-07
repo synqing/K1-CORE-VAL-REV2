@@ -115,6 +115,28 @@ STOP / BLOCKED
 
 not best-effort mutation.
 
+## NEVER AGAIN (injected every session — do not skip the canon file)
+
+1. Chopping the east edge is not a 160 study. Do not freeze 175 because HMI fell off.
+2. 160 = MACRO −15.000 mm X + 7 reflows. Coordinates: `reference/placement-160/`. Do not shrink HMI pitch.
+3. Antenna is SOUTH of the WROOM. Inductor gap 12.51 mm is I/O-side (PWR-S3-001). Do not move the buck.
+4. L2/L5 stay unified GND. 4 A LED is outer 1 oz. L4 is +3V3 + VDD_SOC.
+5. A folder is not a board. No `easyeda/K1-CORE-VAL-REV2.epro2` → you are at Gate B0, not P1.
+6. `cp` donor `.epro2` is not a new EasyEDA project. `openProject` over FABLE is forbidden.
+7. Canary `fetch failed` = no CDP `:9223`. Never `open -a EasyEDA-Pro` (strips the debug port).
+8. `certified_mutating_verbs=[]`. Outline CLI banned. `setDocumentSource` banned. Gateway cannot → STOP.
+9. Cut-line and naive-translate self-tests must still go RED.
+10. Empty PAD_NET ≠ disconnected. TPS62913 is the die; TPS62912 in the footprint name is an alias.
+11. Donor is FABLE-R3 `f9f33f0f…` / PCB `2aeefe7f…`. Not FABLE-R1 `bbd4b0af…`. Not leftover PCB `730789ba…`.
+12. A 0402 overlapping the ADS7138 bbox is packing, not a 175 freeze. −10 mm is not 160_PASS.
+13. Host never throws (`undefined`/`false`). Default Gerber drops inner copper. Via CREATE persists; modify does not.
+14. `easyeda-run` receipts land in the **R1** `evidence/easyeda-gateway/` tree. Copy them here.
+15. Zero component count from a live read is ABORT (empty editor), never “blank board.” `doc reload` saves first — do not reload an empty editor.
+16. Namespace ids `K1-CORE-VAL-REV2::<doc>::<id>`.
+
+Story and EasyEDA surface table: `docs/SESSION-CANON-2026-09-07-CUTLINE-IS-NOT-PLACEMENT.md`.
+Live-editor empty-document scar: `docs/SESSION-CANON-2026-09-07-LIVE-EDITOR-INTEGRITY.md`.
+
 ## Frozen product facts
 
 - WIDTH 40.0 mm. LED interface = FPC 10P. Dual VH retired.
@@ -135,3 +157,4 @@ Not a zone redesign, MCU rethink, KiCad migration, autorouter experiment, HMI re
 | Date | Author | Change |
 |---|---|---|
 | 2026-09-07 | agent:grok | REV2 operating constitution. |
+| 2026-09-07 | agent:grok | NEVER AGAIN block inlined so session injection carries the gold, not a filename. |
