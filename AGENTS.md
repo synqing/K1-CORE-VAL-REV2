@@ -6,10 +6,22 @@ abstract: "Hard operating rules for K1-CORE-VAL-REV2. EasyEDA Pro only. Donor FA
 
 **Read first, every session:**
 `docs/SESSION-CANON-2026-09-07-CUTLINE-IS-NOT-PLACEMENT.md`
+`docs/SESSION-CANON-2026-09-07-LIVE-EDITOR-INTEGRITY.md`
 
 Cut-line is not placement. A folder is not a board. Canary needs `:9223`.
+
+**Before the first read of a session, before every mutation batch, and after every
+application restart:** run `preflight.sh <project-uuid> <doc-uuid>` (in the R1 tree at
+`tools/easyeda/preflight.sh`). An EasyEDA editor can hold NOTHING while answering
+`ok=true` to every read, and `doc reload` SAVES FIRST — run it in that state and it
+writes the empty document over the board. A zero component count is an ABORT, never
+an empty board. Never launch EasyEDA with `open -a`: it strips
+`--remote-debugging-port=9223`, after which every CDP driver fails silently while the
+CLI keeps answering normally.
 Do not start P1/P2 until Gate B0 has a live EasyEDA project and a canonical
 `easyeda/K1-CORE-VAL-REV2.epro2`. Gateway `certified_mutating_verbs` is empty.
+Donor is FABLE-R3 SHA `f9f33f0f…` PCB `2aeefe7f…` — not FABLE-R1 `bbd4b0af…`,
+not leftover PCB `730789ba…`.
 
 ```text
 PROJECT            = K1-CORE-VAL-REV2
