@@ -39,6 +39,14 @@ This session spent a full evaluation close-out, a Captain rejection, a real 160 
 
 12. **Namespace EasyEDA ids by project.** `K1-CORE-VAL-REV2::<document-id>::<primitive-id>`. Import may preserve donor UUIDs. That is not automatically corruption.
 
+13. **Do not mix FABLE generations.** Donor export title is `K1-Core-VAL-R1-FABLE-R3` SHA `f9f33f0f…`. The older live uuid `bbd4b0af5e3a4eeaa69d4c8ab609617f` is **FABLE-R1**. Baseline-manifest geometry is FABLE-R1. Using it as REV2 donor identity or as 160 coordinates is a silent board swap.
+
+14. **The archive contains two PCB documents.** Product PCB is `2aeefe7f7971144f` (243 parts). `730789baa0a46bea` is leftover junk. Do not open, promote, census-merge, or “repair” PCB2.
+
+15. **A local packing overlap is not a 175 freeze.** The first 160 reflow placed I²C resistors *inside* the ADS7138 bbox. That is “move the 0402 1 mm,” not “the extra 15 mm cannot be recovered.” Iterate the seven centres; do not reopen length.
+
+16. **10 mm is not the 160 candidate.** Captain’s 0.08 mm doorway arithmetic is a thought experiment. The contracted move is **−15.000 mm**. Do not ship a 165 mm board and call it 160_PASS.
+
 ---
 
 ## 2 — What this session was asked to do
@@ -228,6 +236,10 @@ These were prior canons. This session re-confirmed them; it did not invent them.
 [ ] Is easyeda/K1-CORE-VAL-REV2.epro2 present with a SHA in bootstrap/source-integrity.json?
     NO → you are at B0, not P1.
 [ ] Self-test battery: can it still go RED on cut-line and naive-translate?
+[ ] Donor is FABLE-R3 SHA f9f33f0f… PCB 2aeefe7f… — not FABLE-R1 bbd4b0af…, not PCB2 730789ba…
+[ ] lsof 9223 *this* process, then canary. EasyEDA running ≠ Bridge attached.
+[ ] After any gateway run, copy `run.json` from the R1 tools `evidence/easyeda-gateway/` into REV2 `evidence/`.
+[ ] Stack is JLC06161H-3313E ~1.65 mm Er 4.1/4.36 — not non-E 3313 inner USB 4.67/5.5 mil.
 ```
 
 ---
@@ -264,9 +276,83 @@ These were prior canons. This session re-confirmed them; it did not invent them.
 | `setDocumentSource` to move 174 parts | “gateway has no move verb” | Rule 9 |
 | All-green placement score with no red controls | “self-test passed” | Rule 10 |
 | Swap TPS62913 → 62912 | “footprint name mismatch” | Rule 11 |
+| Import FABLE-R1 uuid as REV2 donor | “working project recommendation” | Rule 13 |
+| Census-merge PCB `730789baa0a46bea` | “second PCB in the zip” | Rule 14 |
+| 175_FREEZE because I²C overlapped the QFN | “160 still collides” | Rule 15 |
+| −10 mm and call it 160 | “Captain’s 0.08 mm note” | Rule 16 |
+| `load_epru(inner.epru)` | “I extracted the archive” | §14 |
+| Quote JLC/Polar from a curl’d SPA | “the help page says” | §15 |
+| `pdftotext` on a raster Kinghelm drawing | “datasheet has no current” without reading the PNG | §15 |
+| Default Gerber / stale DRC panel | “export succeeded, DRC 0” | §14 |
+| Trust `easyeda-run` evidence under REV2 `evidence/` automatically | it writes into the **R1 tools** tree | §14 |
+
+---
+
+## 14 — EasyEDA surface (this product, this host, 3.2.149)
+
+Full bibles (do not re-derive): R1 `docs/easyeda/EASYEDA-AGENT-POLICY.md`, skill `easyeda-verification-contract`, `SESSION-CANON-2026-09-05-GATEWAY-CONCURRENCY-AND-IMPORTER.md`, `SESSION-CANON-2026-09-07-VIA-PERSIST-AND-GATEWAY.md`.
+
+**This session added, or re-confirmed in a way agents still miss:**
+
+| Pitfall | Territory |
+|---|---|
+| `easyeda-run canary` `FAIL` / `fetch failed` | App is up **without** CDP. `ps` shows EasyEDA-Pro with **no** `--remote-debugging-port=9223`. Not “EasyEDA crashed.” |
+| Evidence path | Gateway writes `K1-CORE-VAL-R1/evidence/easyeda-gateway/<run>/`. REV2 does **not** get that folder for free. Copy receipts. |
+| `load_epru(path)` | Expects the **`.epro2` zip**. Feeding the inner `.epru` → `BadZipFile`. |
+| Units | Records are **mil**. `mm = mil × 0.0254`. Exception: `POURED.pourFill[].path[]` is **10-mil**. |
+| Schematic `LINE` body | Can be `None` (tombstone). Do not crash a census; skip. |
+| Two PCBs in one zip | `2aeefe7f7971144f` = product. `730789baa0a46bea` = junk. |
+| FABLE-R1 vs R3 | Title/SHA/uuid are different generations. Manifest `b6cabdc3…` is R1. |
+| Outline | Layer-11 is **several POLYs**, not one 175×40 rectangle. South strip near S3 is a real feature. Do not assume a rectangle then invent antenna-pour defects. |
+| GUI +Y | Not determined from the file. Relative geometry is exact. Draw north-up from **S3 antenna = south** (ymin ≈ 7.04), not from a guess about screen up. |
+| Host never throws | Create/modify reject = `undefined`. Delete/save/import reject = `false`. `ok:true` / `count` / `deleted:true` are T3 claims. |
+| Autosave | Killing the app is **not** rollback. Snapshot source SHA **before** a write. |
+| Default Gerber | **Drops inner copper.** Pass an explicit layers array. DRC cannot see a missing `.G1`. |
+| Stale DRC | Panel until `Clear Errors` → `Check DRC`. |
+| Layer argument `"1"` | Inert copper. Use `TopLayer` / `BottomLayer`. |
+| `list_pcb_component_pads` | Prefix-matches ids (`e2` collects `e206`). |
+| Via | CREATE persists. `modify` does not. `holeDiameter`=drill, `diameter`/`viaDiameter`=land. Do not shrink to 0.15 mm. |
+| Outline CLI | `outline-*` automation-banned. P1 outline is GUI or STOP. |
+| Import | Stall at 50 % still unresolved. File-type label is `JLCEDA(Professional)…`. Second dialog after 60–90 s parse. Never import onto an open FABLE. |
+| Login | Never navigate to `pro.easyeda.com/editor#…` — it drops login. Gateway uses `editor?cll=warn`. |
+| `download` | Server download is the checkpoint of record, not a GUI File › Export. Downloads keep tombstones (larger). |
+| Copper delete | “Remove Loops With Vias” / “Wire Follows Footprint” can re-route **other nets**. Turn off before delete. |
+| `add_schematic_wire` | May **join an entire net**, not add a stub. Deleting the returned id can depower a rail. |
+| `Supplier Part` | `MPN.1` is not an LCSC `C…` code. |
+| Gate G | Off-screen component panel = `NOT_MEASURED`, not a pass. |
+| Render proof | ≥0.4 % foreground proves *something* drew, not the *right* sheet. |
+| `EASYEDA_PCB_GATES=0` | Invisible kill switch unless status says so. Treat missing field as OFF. |
+| Extra parts | `RT-BTN1/2`, `S3-BTN1/2`, `U7/U33/U34/U35` are real. Keep. |
+| `HMI_RGB_D45` | 0 pads on D9 — unnamed/broken net, not a seventh LED. |
+
+USB HS for 90 Ω **must stay L1/L6** Polar geometry. Inner 3313E is not the non-E 4.67/5.5 mil pair (~88 Ω). Stack is **special** `JLC06161H-3313E` ~1.6504 mm; L1↔L2 Er 4.1 / 0.0994 mm; L3 **references L2** (core Er **4.36**), not L4.
+
+Opposite-side XY overlap is allowed **except under the WROOM**. 0402 under S3 is a fail even on the bottom.
+
+---
+
+## 15 — Maps that lied this session (do not trust them again)
+
+| Map | Territory |
+|---|---|
+| R1 `K1-BASELINE-MANIFEST.md` geometry | FABLE-R1 SHA. Live donor is FABLE-R3 `f9f33f0f…`. |
+| `04-routing-census.csv` before the ARC patch | 265 LINE + 218 VIA. Missing 230 ARC. |
+| Census `sys.path` `parents[3]` | That is `research/`, not the repo. `epru` lives at repo `tools/easyeda/lib`. Use `parents[4]` from `scripts/` in the eval lane. |
+| JLC `/help/article/…` curl | SPA shell. JS-truncated tables. Open Polar JSON / a real article extract, or do not quote. |
+| Polar HTTP POST without websocket cookie | `400` `必须的入参不能为空`. Forward SI9000 receipt is `jlc06161h-3313e-polar-2026-09-07.json`. Inverse Polar failed. |
+| `pdftotext` on C2797226 | 4.8 MB **raster**. Text is the company header. Current rating is absent **on the PNG of the drawing**, not because pdftotext was empty. |
+| `planes_160.json` area estimate | Disagreed with prose. REFERENCE_ONLY UNTIL RECONCILED. |
+| JLC C2C pitch | DFM is **edge-to-edge gap**. Existing tactiles already violate 2.5 mm body-to-edge — exempt *existing* edge parts; do not fail 160 for a 175 condition. |
+| “North of S3 is blocked” | First body is a 1.4 mm 0402. USB alley is east of it. |
+| BTN1–BTN4 distance | Diagonal ~24.7 mm. Column is BTN1–BTN6 = 11.300 mm. |
+| GitHub `K1-CORE-VAL-REV2` | **PUBLIC.** Donor `.epro2` is on the internet. Other VAL repos are public; KiCad hardware is private. Do not assume private. |
+| First git commit author | Was `agent:grok <rev2-bootstrap@local>`. Fixed **before** push. After `origin/main` exists, do not rewrite. |
+
+VDD_SOC on the donor: **10 vias, 0 tracks** — it is waiting for an L4 island, not proof that core power is routed.
 
 ---
 **Document Changelog**
 | Date | Author | Change |
 |---|---|---|
 | 2026-09-07 | agent:grok | Canon from placement close-out + REV2 bootstrap session. |
+| 2026-09-07 | agent:grok | §14 EasyEDA surface + §15 lying maps; rules 13–16 (FABLE gen, PCB2, packing ≠ length, 10 mm ≠ 160). |
