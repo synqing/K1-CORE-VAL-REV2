@@ -67,6 +67,24 @@ No CDP, MCP, Playwright, AppleScript or computer-use attached to EasyEDA outside
 
 If the gateway cannot do it: **STOP and report**. Do not bypass.
 
+## NEVER AGAIN — EasyEDA project-file import (2026-09-07)
+
+**Trigger (measured, do not re-run to confirm):**
+
+```text
+easyeda-run import-test <large.epro2> --via gui
+easyeda-run import-test <large.epro2> --via api
+easyeda-run import-test <large.epro2> --via api --into <uuid>
+eda.sys_FileManager.importProjectByProjectFile(...)
+File → Import → JLCEDA(Professional) of a ~3 MB .epro2
+```
+
+**What happens:** EasyEDA paints a progress overlay (50% / 67% / 75%) that does **not** advance. The operator cancels with **ESC**. CDP pause-storm makes it worse; it still stalls with pause set to `uncaught`. `--into` / Existing Project additionally injects `Board1_1` / `PCB1_1` / `schematic1_1` siblings.
+
+**Mechanical gate:** `easyeda-run import-test` and the CDP import drivers now `REFUSED` / exit 3 (`IMPORTER_STALL_KNOWN`). Do not bypass. Do not write a second importer. Do not ask Captain to watch the bar.
+
+Canon: `docs/SESSION-CANON-2026-09-07-IMPORTER-STALL.md`
+
 ## Document-level surgery
 
 Stackup, design-rule and padstack work must use safe EasyEDA-native mechanisms. Do not rewrite whole document source because it is easier.
@@ -137,6 +155,22 @@ not best-effort mutation.
 Story and EasyEDA surface table: `docs/SESSION-CANON-2026-09-07-CUTLINE-IS-NOT-PLACEMENT.md`.
 Live-editor empty-document scar: `docs/SESSION-CANON-2026-09-07-LIVE-EDITOR-INTEGRITY.md`.
 
+## What is injected vs what you must open
+
+A file nobody is forced to load is theatre. On session start in **this** tree:
+
+| Auto-loaded | Not auto-loaded |
+|---|---|
+| this `AGENTS.md` (including NEVER AGAIN 1–16) | the long canons under `docs/SESSION-CANON-*` |
+| `CLAUDE.md` | skill **bodies** (catalog shows the name only) |
+| `.cursor/rules/k1-core-val-rev2.mdc` (`alwaysApply`) | anything under `.grok/` (gitignored) |
+
+Skill `k1-core-val-rev2` is tracked at `.agents/skills/k1-core-val-rev2/SKILL.md`. Load it on hardware work. Open a canon when the task hits that scar.
+
+If this session is **not** this tree (you are in `K1-CORE-VAL-R1` or elsewhere): you did **not** get the 16 laws. Stop implementing. Open REV2, or you are flying blind.
+
+Injection proof (must be able to go red): `python3 tools/injection_check.py` and `python3 tools/injection_check.py --self-test`.
+
 ## Frozen product facts
 
 - WIDTH 40.0 mm. LED interface = FPC 10P. Dual VH retired.
@@ -158,3 +192,4 @@ Not a zone redesign, MCU rethink, KiCad migration, autorouter experiment, HMI re
 |---|---|---|
 | 2026-09-07 | agent:grok | REV2 operating constitution. |
 | 2026-09-07 | agent:grok | NEVER AGAIN block inlined so session injection carries the gold, not a filename. |
+| 2026-09-07 | agent:grok | What-is-injected table; skill tracked under `.agents/skills/`; injection_check.py. |

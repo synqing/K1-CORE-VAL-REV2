@@ -16,4 +16,7 @@ If `easyeda/K1-CORE-VAL-REV2.epro2` is absent you are at Gate B0 — not P1.
 
 Never: cut-line 160 reject, `cp` donor as REV2, `openProject` over FABLE,
 `setDocumentSource`, outline CLI, implement in K1-CORE-VAL-R1, FABLE-R1 uuid,
-leftover PCB2, split L2/L5, shrink HMI, TPS62912 “fix”, NFC, `open -a EasyEDA-Pro`.
+leftover PCB2, split L2/L5, shrink HMI, TPS62912 “fix”, NFC, `open -a EasyEDA-Pro`,
+`doc reload` on an empty editor, treat zero components as a blank board.
+
+Skill path (git-tracked): `.agents/skills/k1-core-val-rev2/SKILL.md`.
