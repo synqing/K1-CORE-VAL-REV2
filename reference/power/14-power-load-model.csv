@@ -1,0 +1,18 @@
+rail,consumer,Imax_A,Itransient_A,Itypical_A,source,citation,notes
++5V_LED_N,north LED FPC bench,2.0,2.0,product-cap,architecture,contracts/power.md 2 A/bar,not HMI
++5V_LED_S,south LED FPC bench,2.0,2.0,product-cap,architecture,contracts/power.md 2 A/bar,not HMI
++5V_LED,trunk N+S,4.0,4.0,USB-capped<3,architecture,R1-D-046 / contracts/power.md,USB 3 A cannot run 4 A
++5V_SYS,HMI WS2812E x6 full white,0.220,0.216,0.004-iq,DS+DERIVED,WS2812E-1313.pdf p.3 12 mA/ch x3 x6 + 0.6 mA iq,NOT the strip; does not earn L4 5 V
++5V_SYS,encoders KH-EC063T x2,0.05,0.05,0.02,EST,no LED on MPN,confirm
+VBUS_J1,USB 3 A envelope,3.0,3.0,0.5,architecture,contracts/power.md,logic+LED USB-capped
++3V3,ESP32-S3-WROOM-1 TX 802.11b 100% duty,0.355,0.355,0.048,DS,ESP32-S3-WROOM-1 v1.8 p.28 Table 6-4,PSRAM may raise sleep; TX is the spike
++3V3,RT1062 DCDC_IN max-power table,0.110,0.110,NOT_VERIFIED,DS,IMXRT1060CEC Rev4 Table 12,GPIO switching extra via N*C*V*0.5*F; not 0.5 A folklore
++3V3,USB2422 HS host 2 DN peak traffic,0.089,0.089,0.070,DS,USB2422 DS00001726 Table 5-1 IHCH2,peak traffic not quiet average
++3V3,TUSB320LAI UFP VDD,0.00007,0.00007,0.00007,DS,SLLSEQ8D §6.5 IACTIVE_UFP,microamps
++3V3,audio ADC + mic + rest,0.15,0.15,0.08,EST,ADS-class + IM69D130,keep off LED 5V
+VDD_SOC,RT core domain,0.110,0.110,NOT_VERIFIED,DS,same DCDC_IN row,10 vias 0 tracks today — needs L4 island
++5V_LED_N,TPS259474 RILM LED-N 1.65 kΩ,2.028,2.028,2.028,DS,TPS25947 SLVSFC9 ILIM row RILM=1.65kΩ typ 2.028 A (1.80–2.20),R-LEDN-ILIM1 0402WGF1651TCE
++5V_LED_S,TPS259474 RILM LED-S 1.65 kΩ,2.028,2.028,2.028,DS,same ILIM row,R-LEDS-ILIM1 0402WGF1651TCE
+VBUS_J1,TPS259474 RILM USB ingress 1.10 kΩ,3.03,3.03,3.03,DERIVED,RILM≈3334/IILM from DS family; 3334/1100=3.03 A,R-PWR-ILIM1 0402WGF1101TCE; USB 3 A envelope
++5V_BENCH_IN,TPS259474 RILM bench DNP 825 Ω,4.04,4.04,4.04,DERIVED,3334/825=4.04 A; DS 750 Ω row is 4.452 A typ,R-PWR-ILIM2 RC0402FR-07825RL DNP
++5V_LED_N/+5V_LED_S,KH-FG1.0-H2.0-10PIN pin current,NOT_VERIFIED,NOT_VERIFIED,NOT_VERIFIED,GAP,Kinghelm drawing C2797226 / 2015-01-28 lists 50 V, ≤0.03 Ω, ≥500 MΩ, −25–85 °C — no A/pin,PRODUCT_POWER_BLOCKER independent of board length; sibling KH-FPC1.0-H2.0SMT-10P-QCHF is 0.5 A/PIN (different MPN, not this part)

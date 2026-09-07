@@ -1,0 +1,253 @@
+{
+  "project": "K1-CORE-VAL-REV2",
+  "generated_at": "2026-09-07T10:44:15Z",
+  "policy": {
+    "machine-contract": "May drive verification and placement/power gates.",
+    "reference-only": "Readable; do not implement blindly. planes_160.json is REFERENCE_ONLY UNTIL RECONCILED.",
+    "historical": "Provenance only."
+  },
+  "artefacts": [
+    {
+      "name": "00-GATE.md",
+      "role": "160_PASS gate prose",
+      "rev2_path": "reference/placement-160/00-GATE.md",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/closure/00-GATE.md",
+      "sha256": "4b0246cef089212d578d5bb1595515a4092c02466595802b514c26783c83930a",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "machine-contract",
+      "notes": "160_PASS gate prose"
+    },
+    {
+      "name": "placement_160.json",
+      "role": "target XY/side/class for every component",
+      "rev2_path": "reference/placement-160/placement_160.json",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/closure/placement_160.json",
+      "sha256": "16fc4fc8301e350b4268c10ff22792ae8d9ca2868923d8c394021d5b150ae0f7",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "machine-contract",
+      "notes": "target XY/side/class for every component"
+    },
+    {
+      "name": "coordinate_map_160.csv",
+      "role": "175 vs 160 coordinate table",
+      "rev2_path": "reference/placement-160/coordinate_map_160.csv",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/closure/coordinate_map_160.csv",
+      "sha256": "7e7795429b27eccd2557e03f34812c95b4c5adeb9541c32a6f1262498c3a1173",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "machine-contract",
+      "notes": "175 vs 160 coordinate table"
+    },
+    {
+      "name": "comparison.json",
+      "role": "distances, residuals, congestion",
+      "rev2_path": "reference/placement-160/comparison.json",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/closure/comparison.json",
+      "sha256": "2af3028d52ca61530918994832958041973ca70a985a193a76eee3b909c71fa4",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "machine-contract",
+      "notes": "distances, residuals, congestion"
+    },
+    {
+      "name": "selftest.json",
+      "role": "cut-line RED / naive RED / candidate GREEN",
+      "rev2_path": "reference/placement-160/selftest.json",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/closure/selftest.json",
+      "sha256": "da04f42439048ef69096551a3cd29fe3cfa2bcd3578e86556ff3d1720e835662",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "machine-contract",
+      "notes": "cut-line RED / naive RED / candidate GREEN"
+    },
+    {
+      "name": "current-pcb-census.json",
+      "role": "FABLE-R3 PCB1 census",
+      "rev2_path": "reference/donor-r1/current-pcb-census.json",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/01-current-pcb-census.json",
+      "sha256": "eb1ed7789bc3aa8b096489de40e316dddc40422fa9ad0a72c85bd5c917b9154f",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "reference-only",
+      "notes": "FABLE-R3 PCB1 census"
+    },
+    {
+      "name": "component-map.csv",
+      "role": "243 placed parts",
+      "rev2_path": "reference/donor-r1/component-map.csv",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/02-component-map.csv",
+      "sha256": "eb093b5d290123de7065d23392df5797a1c3e6484f45d9b2cd54fd555168c483",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "reference-only",
+      "notes": "243 placed parts"
+    },
+    {
+      "name": "net-geography.csv",
+      "role": "net extents / classes",
+      "rev2_path": "reference/donor-r1/net-geography.csv",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/03-net-geography.csv",
+      "sha256": "b995a8eb95527acc641dc0376ccf2bb44b53c67261369a1e4aaae381fbac90fc",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "reference-only",
+      "notes": "net extents / classes"
+    },
+    {
+      "name": "routing-census.csv",
+      "role": "265 LINE + 230 ARC + 218 VIA",
+      "rev2_path": "reference/donor-r1/routing-census.csv",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/04-routing-census.csv",
+      "sha256": "7bc39f762e0f8efcde103248382f1f8ec6233d4c9a66c8046c8d2fd290ab150e",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "reference-only",
+      "notes": "265 LINE + 230 ARC + 218 VIA"
+    },
+    {
+      "name": "ProPrj_K1-Core-VAL-R1-FABLE-R3_2026-09-07.epro2",
+      "role": "donor archive; NOT the REV2 canonical source",
+      "rev2_path": "reference/donor-r1/ProPrj_K1-Core-VAL-R1-FABLE-R3_2026-09-07.epro2",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/source/ProPrj_K1-Core-VAL-R1-FABLE-R3_2026-09-07.epro2",
+      "sha256": "f9f33f0f7cbfc184ccb7b78e87e0840aae9ab5f74d672bbd09df8a3249dd9ebe",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "reference-only",
+      "notes": "donor archive; NOT the REV2 canonical source"
+    },
+    {
+      "name": "Config_LayerManager_2026-09-05.json",
+      "role": "JLC06161H-3313E layer manager dump",
+      "rev2_path": "reference/donor-r1/Config_LayerManager_2026-09-05.json",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/source/Config_LayerManager_2026-09-05.json",
+      "sha256": "7475265128efda70f15cb126f60a3641d03c4524dba4827685b6bf99c5821caa",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "reference-only",
+      "notes": "JLC06161H-3313E layer manager dump"
+    },
+    {
+      "name": "planes_160.json",
+      "role": "REFERENCE_ONLY UNTIL RECONCILED",
+      "rev2_path": "reference/power/planes_160.json",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/closure/planes_160.json",
+      "sha256": "7ea2455013df0109023c25ff9af4a61390ea6674dc0b7ef92bd84d20aa88a2e8",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "reference-only",
+      "notes": "REFERENCE_ONLY UNTIL RECONCILED \u2014 generator area estimate; do not inject polygons blindly"
+    },
+    {
+      "name": "planes_175.json",
+      "role": "175-length Architecture C proposal; historical once 160 is live",
+      "rev2_path": "reference/power/planes_175.json",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/closure/planes_175.json",
+      "sha256": "1e100cbbec1a2c2b6d136790ed0ea9d0462b3c87941ae6b0eed2d47eff683389",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "reference-only",
+      "notes": "175-length Architecture C proposal; historical once 160 is live"
+    },
+    {
+      "name": "05-power-planes.md",
+      "role": "Architecture C prose",
+      "rev2_path": "reference/power/05-power-planes.md",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/closure/05-power-planes.md",
+      "sha256": "cfe1ba4af83a6a249dc5ed19915f41210071fcec9a45a47c09eadaf52ad3dbc1",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "reference-only",
+      "notes": "Architecture C prose"
+    },
+    {
+      "name": "15-l4-plane-options.md",
+      "role": "why C was chosen over A/B/D",
+      "rev2_path": "reference/power/15-l4-plane-options.md",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/15-l4-plane-options.md",
+      "sha256": "f50e1e5453720b8e0c4ad1f3e3b9636dfd6dcb5c6a3ac4cb74fad07b4253e927",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "reference-only",
+      "notes": "why C was chosen over A/B/D"
+    },
+    {
+      "name": "14-power-load-model.csv",
+      "role": "currents + RILM + KH-FG gap",
+      "rev2_path": "reference/power/14-power-load-model.csv",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/14-power-load-model.csv",
+      "sha256": "9bfb881cab3e5906b8919a7f1e3faf1136d5ce8dc2e551921c0c0eaea1d2ea17",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "machine-contract",
+      "notes": "currents + RILM + KH-FG gap"
+    },
+    {
+      "name": "14-datasheet-current-facts.md",
+      "role": "datasheet current citations",
+      "rev2_path": "reference/power/14-datasheet-current-facts.md",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/14-datasheet-current-facts.md",
+      "sha256": "73a37f34a8df8d1ec71084cdc0f62e41ba7931728245df852231e6c40a631968",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "reference-only",
+      "notes": "datasheet current citations"
+    },
+    {
+      "name": "jlc06161h-3313e-polar-2026-09-07.json",
+      "role": "Polar SI9000 5.10/5.00 mil \u2192 90.003 \u03a9",
+      "rev2_path": "reference/usb-impedance/jlc06161h-3313e-polar-2026-09-07.json",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/evidence-jlc/jlc06161h-3313e-polar-2026-09-07.json",
+      "sha256": "60e08eb4932c08f778ca1fe4187689da69e5f720bf0071d6791a92a504b76805",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "machine-contract",
+      "notes": "Polar SI9000 5.10/5.00 mil \u2192 90.003 \u03a9"
+    },
+    {
+      "name": "20-net-class-proposal.csv",
+      "role": "proposed net classes; USB row is Polar-backed",
+      "rev2_path": "reference/usb-impedance/20-net-class-proposal.csv",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/20-net-class-proposal.csv",
+      "sha256": "adbb612056bd9ff1560b3c8a4a9c60273096962ff6efd2a801eafc84b4b86b26",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "reference-only",
+      "notes": "proposed net classes; USB row is Polar-backed"
+    },
+    {
+      "name": "05-current-stack.md",
+      "role": "stack + Polar notes",
+      "rev2_path": "reference/usb-impedance/05-current-stack.md",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/05-current-stack.md",
+      "sha256": "081bdbc626ced7e0ddbffe04d7308715f1811283aed410f4c2978247c51492d5",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "reference-only",
+      "notes": "stack + Polar notes"
+    },
+    {
+      "name": "06-pofv-jlc-research.md",
+      "role": "POFV research; epoxy+cap is not thermally dead",
+      "rev2_path": "reference/power/06-pofv-jlc-research.md",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/06-pofv-jlc-research.md",
+      "sha256": "d49d932fbbf9ba655f03e8d3fe4f50b3160a23dc007d6c7881d8c8f2a10efccf",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "reference-only",
+      "notes": "POFV research; epoxy+cap is not thermally dead"
+    },
+    {
+      "name": "07-pofv-opportunity-matrix.csv",
+      "role": "where to use POFV",
+      "rev2_path": "reference/power/07-pofv-opportunity-matrix.csv",
+      "source_project": "K1-Core-VAL-R1-FABLE-R3",
+      "source_path": "/Users/spectrasynq/Workspace_Management/Software/K1-CORE-VAL-R1/research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/07-pofv-opportunity-matrix.csv",
+      "sha256": "449a78d800ce5c87d6dfef2872f436e135cc87ea83d3738643799e8a04dd82ba",
+      "copied_at": "2026-09-07T10:44:15Z",
+      "authority": "reference-only",
+      "notes": "where to use POFV"
+    }
+  ]
+}

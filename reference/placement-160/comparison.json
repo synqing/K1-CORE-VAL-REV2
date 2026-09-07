@@ -1,0 +1,709 @@
+{
+  "lane": "VERIFICATION \u2014 Placement and Power Architecture Closure",
+  "easyeda_mutated": false,
+  "frame": "document origin (0,0); mm = mil \u00d7 0.0254; PCB1 uuid 2aeefe7f7971144f",
+  "p0": "research/lanes/DOWNSTREAM-PCB-EVAL-2026-09-07/source/ProPrj_K1-Core-VAL-R1-FABLE-R3_2026-09-07.epro2",
+  "captain_lock": {
+    "S3_xmin_mm": 57.78,
+    "SVC-ADC1_xmax_mm": 47.7,
+    "U34_xmax_mm": 172.36,
+    "dx_mm": -15.0,
+    "10mm_thought_experiment": {
+      "S3_xmin": 47.78,
+      "gap_to_adc_xmax": 0.08,
+      "note": "0.08 mm \u2014 Captain arithmetic confirmed; 10 mm is not the mandated candidate"
+    }
+  },
+  "classification_counts": {
+    "MACRO": 174,
+    "WEST_FIXED": 62,
+    "REFLOW": 7
+  },
+  "reflow": {
+    "SVC-ADC1": {
+      "x": 54.0,
+      "y": 33.5,
+      "side": "bottom",
+      "why": "ADS7138 out of S3 body; north of S3, south of S3-BTN2, bottom to keep L1 USB wrap"
+    },
+    "C-SVC-DEC1": {
+      "x": 54.0,
+      "y": 30.7,
+      "side": "bottom",
+      "why": "decap south of new ADC, 0.49 mm body gap"
+    },
+    "R-PWR-I2C1": {
+      "x": 51.5,
+      "y": 33.5,
+      "side": "bottom",
+      "why": "I2C pull-up west of ADC"
+    },
+    "R-PWR-I2C2": {
+      "x": 56.4,
+      "y": 33.5,
+      "side": "bottom",
+      "why": "I2C pull-up east of ADC"
+    },
+    "R-LEDN-PRS1": {
+      "x": 51.5,
+      "y": 30.2,
+      "side": "bottom",
+      "why": "was under incoming WROOM; service-neighbourhood pull-up, not at LED FPC"
+    },
+    "R-S3-IRQ1": {
+      "x": 44.8,
+      "y": 27.2,
+      "side": "top",
+      "why": "blind -15 mm lands on the buck; park north of new S3 west corner"
+    },
+    "SVC-TEMP1": {
+      "x": 40.97,
+      "y": 29.07,
+      "side": "top",
+      "why": "y+0.80 mm: clear S3 west-north corner without kissing C-PWR-BLK7"
+    }
+  },
+  "gate": "160_PASS",
+  "gate_why": "Super-macro \u221215 mm + 7-part west-boundary reflow produces a 160\u00d740 candidate with HMI pitch, hub star, RT\u2194flash/xtal, and audio/HMI boundary preserved. Eastmost body 157.36 mm (2.64 mm inset, same as 175). No same-side overlap. No WROOM underside parts. Cut-line and naive-translate controls went RED.",
+  "residuals": [
+    {
+      "item": "buck/inductor \u2192 S3 I/O-side gap",
+      "was_mm": 39.44,
+      "now_mm": 24.47,
+      "body_gap_mm": 12.51,
+      "verdict": "NOT_IRREDUCIBLE",
+      "why": "Antenna is SOUTH of the WROOM (ymin\u22487.0). Inductor is WEST of the I/O wall. 12.51 mm body gap on the I/O side with solid L2/L5 GND is a real tightening, not an RF keepout violation and not a packing collision."
+    },
+    {
+      "item": "USB HS north wrap height",
+      "detail": {
+        "clear_mm": 1.195,
+        "blocker": "R-S3-IRQ1"
+      },
+      "verdict": "NOT_IRREDUCIBLE",
+      "why": "ADC/reflow cluster is on BOTTOM; L1 wrap above S3 stays a 6+ mm alley. Pair itself is 0.13/0.13 mm on Polar geometry."
+    },
+    {
+      "item": "KH-FG1.0-H2.0-10PIN pin current",
+      "verdict": "PRODUCT_POWER_BLOCKER_INDEPENDENT_OF_LENGTH",
+      "why": "Official Kinghelm drawing lists 50 V, \u22640.03 \u03a9, \u2265500 M\u03a9, \u221225\u201385 \u00b0C. It does not state A/pin. Sibling KH-FPC1.0-H2.0SMT-10P-QCHF is 0.5 A/PIN \u2014 different MPN, not this part."
+    }
+  ],
+  "pairs": [
+    {
+      "pair": "USB-C\u2192hub",
+      "a": "USB-C1",
+      "b": "USB-HUB1",
+      "mm_175": 72.534,
+      "mm_160": 57.545,
+      "delta_mm": -14.989
+    },
+    {
+      "pair": "hub\u2192S3",
+      "a": "USB-HUB1",
+      "b": "S3-MCU1",
+      "mm_175": 15.706,
+      "mm_160": 15.706,
+      "delta_mm": 0.0
+    },
+    {
+      "pair": "hub\u2192RT",
+      "a": "USB-HUB1",
+      "b": "RT-MCU1",
+      "mm_175": 22.39,
+      "mm_160": 22.39,
+      "delta_mm": 0.0
+    },
+    {
+      "pair": "S3\u2192RT",
+      "a": "S3-MCU1",
+      "b": "RT-MCU1",
+      "mm_175": 36.889,
+      "mm_160": 36.889,
+      "delta_mm": 0.0
+    },
+    {
+      "pair": "RT\u2192flash",
+      "a": "RT-MCU1",
+      "b": "RT-QSPI1",
+      "mm_175": 10.882,
+      "mm_160": 10.882,
+      "delta_mm": 0.0
+    },
+    {
+      "pair": "RT\u2192crystal",
+      "a": "RT-MCU1",
+      "b": "RT-XTAL1",
+      "mm_175": 12.528,
+      "mm_160": 12.528,
+      "delta_mm": 0.0
+    },
+    {
+      "pair": "buck\u2192S3",
+      "a": "PWR-BUCK1",
+      "b": "S3-MCU1",
+      "mm_175": 33.967,
+      "mm_160": 19.27,
+      "delta_mm": -14.697
+    },
+    {
+      "pair": "inductor\u2192S3",
+      "a": "PWR-IND1",
+      "b": "S3-MCU1",
+      "mm_175": 39.444,
+      "mm_160": 24.465,
+      "delta_mm": -14.979
+    },
+    {
+      "pair": "shunt\u2192LED-N",
+      "a": "PWR-SHNT1",
+      "b": "LEDN-FPC1",
+      "mm_175": 91.956,
+      "mm_160": 76.957,
+      "delta_mm": -14.999
+    },
+    {
+      "pair": "shunt\u2192LED-S",
+      "a": "PWR-SHNT1",
+      "b": "LEDS-FPC1",
+      "mm_175": 97.225,
+      "mm_160": 83.21,
+      "delta_mm": -14.015
+    },
+    {
+      "pair": "audio/HMI",
+      "a": "AUD-ADC1",
+      "b": "HMI-ENC1",
+      "mm_175": 17.869,
+      "mm_160": 17.869,
+      "delta_mm": 0.0
+    },
+    {
+      "pair": "encoder C2C",
+      "a": "HMI-ENC1",
+      "b": "HMI-ENC2",
+      "mm_175": 11.205,
+      "mm_160": 11.205,
+      "delta_mm": 0.0
+    },
+    {
+      "pair": "HMI column pitch",
+      "a": "HMI-BTN1",
+      "b": "HMI-BTN6",
+      "mm_175": 11.3,
+      "mm_160": 11.3,
+      "delta_mm": 0.0
+    },
+    {
+      "pair": "RGB column pitch",
+      "a": "HMI-RGB1",
+      "b": "HMI-RGB6",
+      "mm_175": 11.22,
+      "mm_160": 11.22,
+      "delta_mm": 0.0
+    }
+  ],
+  "hmi_175": {
+    "encoder_c2c_mm": 11.205,
+    "button_column_mm": 11.3,
+    "rgb_column_mm": 11.22,
+    "button_row_mm": 10.956
+  },
+  "hmi_160": {
+    "encoder_c2c_mm": 11.205,
+    "button_column_mm": 11.3,
+    "rgb_column_mm": 11.22,
+    "button_row_mm": 10.956
+  },
+  "ws2812e": {
+    "count": 6,
+    "identity": "WS2812E-1313",
+    "pads": 4,
+    "preserved": true
+  },
+  "collisions_160": [],
+  "under_wroom_160": [],
+  "off_board_160": [],
+  "edge_new_violations_160": [],
+  "eastmost_160": 157.36,
+  "s3_160": {
+    "x": 52.28,
+    "xmin": 42.78,
+    "xmax": 61.78,
+    "ymin": 7.045,
+    "ymax": 25.735
+  },
+  "inductor_to_s3_body_gap_mm": 12.51,
+  "buck_to_s3_c2c_mm": 19.27,
+  "ratsnest": {
+    "method": "component-centre Manhattan on the named critical pairs (PCB1 PAD_NET empty)",
+    "critical_sum_175_mm": 547.02,
+    "critical_sum_160_mm": 472.02,
+    "delta_mm": -75.0,
+    "note": "intra-macro pairs are invariant under rigid translation; delta is USB-C\u2192hub + shunt\u2192LED + the 7 reflows"
+  },
+  "congestion_175": {
+    "board_mm2": 7000.0,
+    "component_bbox_mm2": 1658.3,
+    "packing_ratio": 0.2369,
+    "west_band_30_50": {
+      "parts": 26,
+      "bbox_area_mm2": 92.55,
+      "band_area_mm2": 800.0
+    },
+    "north_s3_usb_wrap_mm": {
+      "clear_mm": 11.078,
+      "blocker": "S3-BTN2"
+    },
+    "predicted_via_demand": {
+      "usb_hs": "stay L1/L6 microstrip (Polar 5.10/5.00 mil); fewer mm \u2192 fewer stubs, not more vias",
+      "3v3": "L4 pour; POFV at each IC, count similar, span shorter",
+      "5v_led": "via banks at shunt + FPCs (8+6+6); unchanged count, 15 mm shorter run",
+      "vdd_soc": "existing 10 vias onto new island"
+    }
+  },
+  "congestion_160": {
+    "board_mm2": 6400.0,
+    "component_bbox_mm2": 1658.3,
+    "packing_ratio": 0.2591,
+    "west_band_30_50": {
+      "parts": 24,
+      "bbox_area_mm2": 229.59,
+      "band_area_mm2": 800.0
+    },
+    "north_s3_usb_wrap_mm": {
+      "clear_mm": 1.195,
+      "blocker": "R-S3-IRQ1"
+    },
+    "predicted_via_demand": {
+      "usb_hs": "stay L1/L6 microstrip (Polar 5.10/5.00 mil); fewer mm \u2192 fewer stubs, not more vias",
+      "3v3": "L4 pour; POFV at each IC, count similar, span shorter",
+      "5v_led": "via banks at shunt + FPCs (8+6+6); unchanged count, 15 mm shorter run",
+      "vdd_soc": "existing 10 vias onto new island"
+    }
+  },
+  "planes_175": {
+    "board_mm": [
+      175.0,
+      40.0
+    ],
+    "L2": "solid GND",
+    "L3": {
+      "layer": "L3",
+      "strategy": "route USB/FlexSPI/escape first; then GND fill unused L3. JLC: copper coverage <25% \u2192 pour empty areas or thickness/warpage suffer.",
+      "citation": "https://jlcpcb.com/help/article/inner-layer-copper-coverage-pcb",
+      "do_not": "do not split L2/L5 to 'contain' LED return"
+    },
+    "L4_3V3": {
+      "net": "+3V3",
+      "layer": "L4",
+      "polygon_mm": [
+        [
+          16.0,
+          6.0
+        ],
+        [
+          171.0,
+          6.0
+        ],
+        [
+          171.0,
+          36.0
+        ],
+        [
+          16.0,
+          36.0
+        ]
+      ],
+      "keepouts": [
+        {
+          "name": "S3_antenna_south",
+          "rect": [
+            56.78,
+            0.0,
+            77.78,
+            7.54
+          ]
+        },
+        {
+          "name": "USB_C_cavity",
+          "rect": [
+            0.0,
+            10.0,
+            14.0,
+            30.0
+          ]
+        }
+      ],
+      "min_neck_mm": 8.0,
+      "area_est_mm2": 4498.0
+    },
+    "L4_VDD_SOC": {
+      "net": "VDD_SOC",
+      "layer": "L4",
+      "island_rect": [
+        97.09,
+        13.12,
+        110.89,
+        26.92
+      ],
+      "via_count_existing": 10,
+      "note": "local island under RT BGA; do not merge with +3V3; antipads follow 0.20/0.35 POFV"
+    },
+    "L5": "solid GND",
+    "L1_L6_5V_LED": [
+      {
+        "net": "+5V_LED",
+        "layer": "L1",
+        "polygon_mm": [
+          [
+            27.08,
+            36.0
+          ],
+          [
+            130.86,
+            36.0
+          ],
+          [
+            130.86,
+            39.6
+          ],
+          [
+            27.08,
+            39.6
+          ]
+        ],
+        "min_neck_mm": 3.0,
+        "length_mm": 91.95,
+        "via_banks": [
+          {
+            "at": "PWR-SHNT1",
+            "n": 8,
+            "xy": [
+              31.21,
+              36.55
+            ]
+          },
+          {
+            "at": "LEDN-FPC1",
+            "n": 6,
+            "xy": [
+              123.16,
+              35.5
+            ]
+          }
+        ]
+      },
+      {
+        "net": "+5V_LED",
+        "layer": "L6",
+        "polygon_mm": [
+          [
+            107.3,
+            0.4
+          ],
+          [
+            130.7,
+            0.4
+          ],
+          [
+            130.7,
+            6.2
+          ],
+          [
+            107.3,
+            6.2
+          ]
+        ],
+        "min_neck_mm": 3.0,
+        "length_mm": 91.79,
+        "via_banks": [
+          {
+            "at": "LEDS-FPC1",
+            "n": 6,
+            "xy": [
+              123.0,
+              4.5
+            ]
+          }
+        ]
+      }
+    ],
+    "L1_5V_SYS": {
+      "net": "+5V_SYS",
+      "layer": "L1",
+      "note": "HMI 0.220 A; \u22651 mm pour along HMI north; not an L4 rail",
+      "hmi_pour_rect": [
+        144.6,
+        0.5,
+        167.67,
+        39.5
+      ],
+      "hub_stitch": [
+        81.74,
+        22.52
+      ]
+    },
+    "current_loop": {
+      "led_forward": "outer 1 oz +5V_LED polygons on L1 north / L6 south, 3 mm min neck",
+      "led_return": "adjacent outer GND copper + dense stitching to unified L2/L5; short FPC return",
+      "gnd_planes": "L2 and L5 remain one boring GND. No split."
+    },
+    "bga_antipad": "RT 0.20 mm hole / 0.35 mm land POFV; do not shrink to 0.15 mm"
+  },
+  "planes_160": {
+    "board_mm": [
+      160.0,
+      40.0
+    ],
+    "L2": "solid GND",
+    "L3": {
+      "layer": "L3",
+      "strategy": "route USB/FlexSPI/escape first; then GND fill unused L3. JLC: copper coverage <25% \u2192 pour empty areas or thickness/warpage suffer.",
+      "citation": "https://jlcpcb.com/help/article/inner-layer-copper-coverage-pcb",
+      "do_not": "do not split L2/L5 to 'contain' LED return"
+    },
+    "L4_3V3": {
+      "net": "+3V3",
+      "layer": "L4",
+      "polygon_mm": [
+        [
+          16.0,
+          6.0
+        ],
+        [
+          156.0,
+          6.0
+        ],
+        [
+          156.0,
+          36.0
+        ],
+        [
+          16.0,
+          36.0
+        ]
+      ],
+      "keepouts": [
+        {
+          "name": "S3_antenna_south",
+          "rect": [
+            41.78,
+            0.0,
+            62.78,
+            7.54
+          ]
+        },
+        {
+          "name": "USB_C_cavity",
+          "rect": [
+            0.0,
+            10.0,
+            14.0,
+            30.0
+          ]
+        }
+      ],
+      "min_neck_mm": 8.0,
+      "area_est_mm2": 4048.0
+    },
+    "L4_VDD_SOC": {
+      "net": "VDD_SOC",
+      "layer": "L4",
+      "island_rect": [
+        82.09,
+        13.12,
+        95.89,
+        26.92
+      ],
+      "via_count_existing": 10,
+      "note": "local island under RT BGA; do not merge with +3V3; antipads follow 0.20/0.35 POFV"
+    },
+    "L5": "solid GND",
+    "L1_L6_5V_LED": [
+      {
+        "net": "+5V_LED",
+        "layer": "L1",
+        "polygon_mm": [
+          [
+            27.08,
+            36.0
+          ],
+          [
+            115.86,
+            36.0
+          ],
+          [
+            115.86,
+            39.6
+          ],
+          [
+            27.08,
+            39.6
+          ]
+        ],
+        "min_neck_mm": 3.0,
+        "length_mm": 76.95,
+        "via_banks": [
+          {
+            "at": "PWR-SHNT1",
+            "n": 8,
+            "xy": [
+              31.21,
+              36.55
+            ]
+          },
+          {
+            "at": "LEDN-FPC1",
+            "n": 6,
+            "xy": [
+              108.16,
+              35.5
+            ]
+          }
+        ]
+      },
+      {
+        "net": "+5V_LED",
+        "layer": "L6",
+        "polygon_mm": [
+          [
+            92.3,
+            0.4
+          ],
+          [
+            115.7,
+            0.4
+          ],
+          [
+            115.7,
+            6.2
+          ],
+          [
+            92.3,
+            6.2
+          ]
+        ],
+        "min_neck_mm": 3.0,
+        "length_mm": 76.79,
+        "via_banks": [
+          {
+            "at": "LEDS-FPC1",
+            "n": 6,
+            "xy": [
+              108.0,
+              4.5
+            ]
+          }
+        ]
+      }
+    ],
+    "L1_5V_SYS": {
+      "net": "+5V_SYS",
+      "layer": "L1",
+      "note": "HMI 0.220 A; \u22651 mm pour along HMI north; not an L4 rail",
+      "hmi_pour_rect": [
+        129.6,
+        0.5,
+        152.67,
+        39.5
+      ],
+      "hub_stitch": [
+        66.74,
+        22.52
+      ]
+    },
+    "current_loop": {
+      "led_forward": "outer 1 oz +5V_LED polygons on L1 north / L6 south, 3 mm min neck",
+      "led_return": "adjacent outer GND copper + dense stitching to unified L2/L5; short FPC return",
+      "gnd_planes": "L2 and L5 remain one boring GND. No split."
+    },
+    "bga_antipad": "RT 0.20 mm hole / 0.35 mm land POFV; do not shrink to 0.15 mm"
+  },
+  "selftest": [
+    {
+      "name": "cutline_160_hmi_off_board",
+      "expect": "RED",
+      "got": "RED",
+      "pass": true,
+      "detail": "13 parts outside 160 mm when outline is chopped in place"
+    },
+    {
+      "name": "naive_dx15_same_side_overlap",
+      "expect": "RED",
+      "got": "RED",
+      "pass": true,
+      "detail": "2 overlaps; first={'a': 'S3-MCU1', 'b': 'SVC-ADC1', 'side': 'top', 'gap_mm': -3.28, 'kind': 'OVERLAP'}"
+    },
+    {
+      "name": "candidate_no_same_side_overlap",
+      "expect": "GREEN",
+      "got": "GREEN",
+      "pass": true,
+      "detail": "0 overlaps"
+    },
+    {
+      "name": "candidate_no_parts_under_wroom",
+      "expect": "GREEN",
+      "got": "GREEN",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "candidate_all_on_160",
+      "expect": "GREEN",
+      "got": "GREEN",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hmi_pitch_unchanged",
+      "expect": "GREEN",
+      "got": "GREEN",
+      "pass": true,
+      "detail": {
+        "175": {
+          "encoder_c2c_mm": 11.205,
+          "button_column_mm": 11.3,
+          "rgb_column_mm": 11.22,
+          "button_row_mm": 10.956
+        },
+        "160": {
+          "encoder_c2c_mm": 11.205,
+          "button_column_mm": 11.3,
+          "rgb_column_mm": 11.22,
+          "button_row_mm": 10.956
+        }
+      }
+    },
+    {
+      "name": "relative_electrical_geometry",
+      "expect": "GREEN",
+      "got": "GREEN",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "s3_west_of_50_after_shift",
+      "expect": "GREEN",
+      "got": "GREEN",
+      "pass": true,
+      "detail": "S3 xmin=42.780"
+    },
+    {
+      "name": "east_fits_160_with_jlc_inset",
+      "expect": "GREEN",
+      "got": "GREEN",
+      "pass": true,
+      "detail": "eastmost=157.360 margin=2.640"
+    },
+    {
+      "name": "instrument_saw_red",
+      "expect": "GREEN",
+      "got": "GREEN",
+      "pass": true,
+      "detail": "cut-line and naive-translate must go red or the battery is vacuous"
+    }
+  ],
+  "selftest_pass": true
+}

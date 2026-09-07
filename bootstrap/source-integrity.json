@@ -1,0 +1,17 @@
+{
+  "project": "K1-CORE-VAL-REV2",
+  "generated_at": "2026-09-07T10:44:15Z",
+  "canonical_rev2_epro2": null,
+  "canonical_rev2_sha256": null,
+  "status": "CANONICAL_EXPORT_NOT_YET \u2014 EasyEDA project not created; canary FAIL (no CDP :9223)",
+  "donor": {
+    "title": "K1-Core-VAL-R1-FABLE-R3",
+    "archive": "reference/donor-r1/ProPrj_K1-Core-VAL-R1-FABLE-R3_2026-09-07.epro2",
+    "sha256": "f9f33f0f7cbfc184ccb7b78e87e0840aae9ab5f74d672bbd09df8a3249dd9ebe",
+    "pcb_uuid": "2aeefe7f7971144f",
+    "sch_uuid": "0a76d84abf763109",
+    "stack": "JLC06161H-3313E",
+    "components": 243,
+    "note": "Donor fingerprint only. Not REV2 identity. File is chmod 444."
+  }
+}

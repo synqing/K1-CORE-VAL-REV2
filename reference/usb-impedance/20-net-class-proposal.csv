@@ -1,0 +1,17 @@
+class,match,layer,width_mm,gap_mm,via,notes
+usb2_hs_diff,USB pairs DP/DM DN1/DN2,L1 or L6,0.1295,0.1270,matched pair if any,5.10/5.00 mil; JLC Polar 90.00 Ω on 3313E outer; pour keep-back ≥0.20; do not copy non-E inner 4.67/5.5
+flexspi,FLEXSPI_* FLASH_*,L6 preferred,0.10,0.10,min,"length-match to CLK, not to USB"
+k1br,K1BR_*,L1/L6,0.15,0.15,ordinary,no impedance theatre
+clock_crystal,XTAL OSC,L1 local,0.15,0.20,none if possible,keep 12.5 mm RT xtal
+audio_clock_data,SAI PDM MCLK BCLK,L1/L3,0.12,0.15,min,away from LED 5V
+analogue_audio,AUX TIP RING MIC AIN,L1/L6,0.20,0.25,none across LED,guard GND
+ws2812_data,HMI_RGB_* $1N3583 $1N3585,L1,0.15,0.15,avoid,series R at RT; rename autos
+encoder_gpio,ENC1_ ENC2_ BTN,L1/L6,0.15,0.15,ordinary,
+i2c,SCL SDA,L1/L3,0.15,0.15,ordinary,3V3 pull-ups already
+gpio,default,L1/L3/L6,0.15,0.15,ordinary,kill 10 mil default
+debug,SWD POR RST BOOT,L1/L6,0.15,0.15,ordinary,
+kelvin_sense,SHUNT SENSE,L1,0.20,0.25,none on force path,tap at the shunt pads
+low_current_power,+3V3,L4 plane + short L1,plane,—,POFV to L4,not 10 mil traces
+high_current_power,+5V_LED* +5V_SYS VBUS,L1/L6 polygons,≥3.0 LED / ≥1.0 HMI,—,via banks,not primary L4
+local_rt_power,VDD_SOC NVCC_* ADS_DECAP,L4 island + L1/L6,plane,—,POFV,under BGA
+return,GND,L2 L5 pours,plane,—,stitch 0.20/0.35 tented,don't slot under USB

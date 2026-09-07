@@ -1,0 +1,85 @@
+[
+  {
+    "name": "cutline_160_hmi_off_board",
+    "expect": "RED",
+    "got": "RED",
+    "pass": true,
+    "detail": "13 parts outside 160 mm when outline is chopped in place"
+  },
+  {
+    "name": "naive_dx15_same_side_overlap",
+    "expect": "RED",
+    "got": "RED",
+    "pass": true,
+    "detail": "2 overlaps; first={'a': 'S3-MCU1', 'b': 'SVC-ADC1', 'side': 'top', 'gap_mm': -3.28, 'kind': 'OVERLAP'}"
+  },
+  {
+    "name": "candidate_no_same_side_overlap",
+    "expect": "GREEN",
+    "got": "GREEN",
+    "pass": true,
+    "detail": "0 overlaps"
+  },
+  {
+    "name": "candidate_no_parts_under_wroom",
+    "expect": "GREEN",
+    "got": "GREEN",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "candidate_all_on_160",
+    "expect": "GREEN",
+    "got": "GREEN",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "hmi_pitch_unchanged",
+    "expect": "GREEN",
+    "got": "GREEN",
+    "pass": true,
+    "detail": {
+      "175": {
+        "encoder_c2c_mm": 11.205,
+        "button_column_mm": 11.3,
+        "rgb_column_mm": 11.22,
+        "button_row_mm": 10.956
+      },
+      "160": {
+        "encoder_c2c_mm": 11.205,
+        "button_column_mm": 11.3,
+        "rgb_column_mm": 11.22,
+        "button_row_mm": 10.956
+      }
+    }
+  },
+  {
+    "name": "relative_electrical_geometry",
+    "expect": "GREEN",
+    "got": "GREEN",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "name": "s3_west_of_50_after_shift",
+    "expect": "GREEN",
+    "got": "GREEN",
+    "pass": true,
+    "detail": "S3 xmin=42.780"
+  },
+  {
+    "name": "east_fits_160_with_jlc_inset",
+    "expect": "GREEN",
+    "got": "GREEN",
+    "pass": true,
+    "detail": "eastmost=157.360 margin=2.640"
+  },
+  {
+    "name": "instrument_saw_red",
+    "expect": "GREEN",
+    "got": "GREEN",
+    "pass": true,
+    "detail": "cut-line and naive-translate must go red or the battery is vacuous"
+  }
+]

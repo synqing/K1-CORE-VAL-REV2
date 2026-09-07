@@ -1,0 +1,10 @@
+.DS_Store
+*.swp
+.easyeda/
+.playwright-mcp/
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+evidence/easyeda-gateway/*/driver.log
+evidence/easyeda-gateway/*/cdp*.log

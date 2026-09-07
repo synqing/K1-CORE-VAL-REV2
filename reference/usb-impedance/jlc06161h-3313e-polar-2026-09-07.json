@@ -1,0 +1,93 @@
+{
+  "retrieved_utc": "2026-09-07T07:15:00Z",
+  "engine": "JLCPCB Polar SI9000 via POST https://jlcpcb.com/api/jlcTools/impedance/calc + wss://tools.jlc.com/jlcTools/webSocket/{uuid}",
+  "model_outer": "DiffEdgeCoupledCoatedMicrostrip1B",
+  "model_se": "CoatedMicrostrip1B",
+  "H1_mil": 3.9134,
+  "H1_source_mm": 0.09940,
+  "Er1": 4.1,
+  "T1_mil": 1.6,
+  "results": [
+    {
+      "id": "outer90_help_W5.10_S5",
+      "W1_mil": 5.10,
+      "W2_mil": 4.40,
+      "S1_mil": 5.0,
+      "C1_mil": 1.2,
+      "C2_mil": 0.6,
+      "C3_mil": 1.2,
+      "CEr": 3.8,
+      "dImpedance_ohm": 90.002990443,
+      "dErEff": 3.00265552475,
+      "dDelay": 5780.05527813,
+      "impedance_calc_status": 0
+    },
+    {
+      "id": "outer90_help_W5.00_S5",
+      "W1_mil": 5.00,
+      "S1_mil": 5.0,
+      "C1_mil": 1.2,
+      "C3_mil": 1.2,
+      "dImpedance_ohm": 90.701
+    },
+    {
+      "id": "outer90_help_W5.20_S5",
+      "W1_mil": 5.20,
+      "S1_mil": 5.0,
+      "C1_mil": 1.2,
+      "C3_mil": 1.2,
+      "dImpedance_ohm": 89.3176
+    },
+    {
+      "id": "outer90_livecoverlay_W5.10_S5",
+      "W1_mil": 5.10,
+      "W2_mil": 4.60,
+      "S1_mil": 5.0,
+      "C1_mil": 1.0,
+      "C2_mil": 0.6,
+      "C3_mil": 1.0,
+      "CEr": 3.8,
+      "dImpedance_ohm": 90.101
+    },
+    {
+      "id": "outer90_help_W6.20_S8",
+      "W1_mil": 6.20,
+      "S1_mil": 8.0,
+      "C1_mil": 1.2,
+      "C3_mil": 1.2,
+      "dImpedance_ohm": 90.1814
+    },
+    {
+      "id": "se50_help_W6.16",
+      "model": "CoatedMicrostrip1B",
+      "W1_mil": 6.16,
+      "W2_mil": 5.46,
+      "C1_mil": 1.2,
+      "C2_mil": 0.6,
+      "CEr": 3.8,
+      "dImpedance_ohm": 50.0019760332
+    },
+    {
+      "id": "old_P4_W0.100mm_S0.090mm",
+      "W1_mil": 3.937,
+      "S1_mil": 3.5433,
+      "C1_mil": 1.2,
+      "C3_mil": 1.2,
+      "dImpedance_ohm": 90.2804416674,
+      "note": "Prior P4 starting geometry. Polar-valid ~90 ohm but NOT the JLC 5.10/5 mil table."
+    },
+    {
+      "id": "innerL3_3313table_W4.67_S5.5",
+      "model": "DiffOffsetStripline1B1A",
+      "H1_mil": 3.937,
+      "Er1": 4.36,
+      "H2_mil": 44.126,
+      "Er2": 4.44,
+      "T1_mil": 0.6,
+      "W1_mil": 4.67,
+      "S1_mil": 5.5,
+      "dImpedance_ohm": 88.0476,
+      "note": "JLC06161H-3313 (non-E) inner table does NOT transfer to 3313E."
+    }
+  ]
+}

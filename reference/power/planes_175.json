@@ -1,0 +1,169 @@
+{
+  "board_mm": [
+    175.0,
+    40.0
+  ],
+  "L2": "solid GND",
+  "L3": {
+    "layer": "L3",
+    "strategy": "route USB/FlexSPI/escape first; then GND fill unused L3. JLC: copper coverage <25% \u2192 pour empty areas or thickness/warpage suffer.",
+    "citation": "https://jlcpcb.com/help/article/inner-layer-copper-coverage-pcb",
+    "do_not": "do not split L2/L5 to 'contain' LED return"
+  },
+  "L4_3V3": {
+    "net": "+3V3",
+    "layer": "L4",
+    "polygon_mm": [
+      [
+        16.0,
+        6.0
+      ],
+      [
+        171.0,
+        6.0
+      ],
+      [
+        171.0,
+        36.0
+      ],
+      [
+        16.0,
+        36.0
+      ]
+    ],
+    "keepouts": [
+      {
+        "name": "S3_antenna_south",
+        "rect": [
+          56.78,
+          0.0,
+          77.78,
+          7.54
+        ]
+      },
+      {
+        "name": "USB_C_cavity",
+        "rect": [
+          0.0,
+          10.0,
+          14.0,
+          30.0
+        ]
+      }
+    ],
+    "min_neck_mm": 8.0,
+    "area_est_mm2": 4498.0
+  },
+  "L4_VDD_SOC": {
+    "net": "VDD_SOC",
+    "layer": "L4",
+    "island_rect": [
+      97.09,
+      13.12,
+      110.89,
+      26.92
+    ],
+    "via_count_existing": 10,
+    "note": "local island under RT BGA; do not merge with +3V3; antipads follow 0.20/0.35 POFV"
+  },
+  "L5": "solid GND",
+  "L1_L6_5V_LED": [
+    {
+      "net": "+5V_LED",
+      "layer": "L1",
+      "polygon_mm": [
+        [
+          27.08,
+          36.0
+        ],
+        [
+          130.86,
+          36.0
+        ],
+        [
+          130.86,
+          39.6
+        ],
+        [
+          27.08,
+          39.6
+        ]
+      ],
+      "min_neck_mm": 3.0,
+      "length_mm": 91.95,
+      "via_banks": [
+        {
+          "at": "PWR-SHNT1",
+          "n": 8,
+          "xy": [
+            31.21,
+            36.55
+          ]
+        },
+        {
+          "at": "LEDN-FPC1",
+          "n": 6,
+          "xy": [
+            123.16,
+            35.5
+          ]
+        }
+      ]
+    },
+    {
+      "net": "+5V_LED",
+      "layer": "L6",
+      "polygon_mm": [
+        [
+          107.3,
+          0.4
+        ],
+        [
+          130.7,
+          0.4
+        ],
+        [
+          130.7,
+          6.2
+        ],
+        [
+          107.3,
+          6.2
+        ]
+      ],
+      "min_neck_mm": 3.0,
+      "length_mm": 91.79,
+      "via_banks": [
+        {
+          "at": "LEDS-FPC1",
+          "n": 6,
+          "xy": [
+            123.0,
+            4.5
+          ]
+        }
+      ]
+    }
+  ],
+  "L1_5V_SYS": {
+    "net": "+5V_SYS",
+    "layer": "L1",
+    "note": "HMI 0.220 A; \u22651 mm pour along HMI north; not an L4 rail",
+    "hmi_pour_rect": [
+      144.6,
+      0.5,
+      167.67,
+      39.5
+    ],
+    "hub_stitch": [
+      81.74,
+      22.52
+    ]
+  },
+  "current_loop": {
+    "led_forward": "outer 1 oz +5V_LED polygons on L1 north / L6 south, 3 mm min neck",
+    "led_return": "adjacent outer GND copper + dense stitching to unified L2/L5; short FPC return",
+    "gnd_planes": "L2 and L5 remain one boring GND. No split."
+  },
+  "bga_antipad": "RT 0.20 mm hole / 0.35 mm land POFV; do not shrink to 0.15 mm"
+}

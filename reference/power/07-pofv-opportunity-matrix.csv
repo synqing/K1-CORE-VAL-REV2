@@ -1,0 +1,12 @@
+class,where,benefit,ruling,why
+A,RT1062 signal balls that change layer,escape 0.8 mm BGA,GO,JLC 6L POFV free; 0.20/0.35 matches table
+A,RT1062 power/GND balls,PI + return,GO,VDD_SOC currently via-only
+A,RT/S3/hub HF 0402 to plane,loop L,GO,POFV vs dogbone
+B,USB2422 EP,thermal + GND,SELECTIVE,window paste; epoxy does not conduct heat
+B,eFuse EPs,thermal,SELECTIVE,prefer via bank + optional copper-paste fill
+B,ADS/audio ADC EP,GND,SELECTIVE,"small QFN, don't over-via"
+B,LED FPC return via banks,4 A return,GO as banks,not as single VIP in the pad
+C,random 0402 already dogboned,none,HOLD,antipad cost on L2/L5
+D,0201,none,NO,"paste/void, no density win"
+D,4 A connector pad as only path,solder theft / void,NO,use adjacent via array
+C,stitching vias off-pad,GND,tented ordinary,not POFV
